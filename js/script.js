@@ -13,11 +13,12 @@ controllare che i numeri casuali siano diversi tra loro
 controllare che l'utente non inserisca 2 volte lo stesso numero
 
 1- fare una funzione che genera numeri casuali e li mette in un array
-2- impostare una timing function che dopo 30 secondi: 
-   2.1- chiede con un allert all'utente di inserire i numeri che ha visto
-   2.2- confronta i numeri inseriti con i numeri generati 
-   2.3- se 1 o più numeri dell'utente coincidono: 
-      2.3.1- scrivere quanti e quali ha azzeccato
+2- Mostrare i numeri con un allert
+3- impostare una timing function che dopo 30 secondi: 
+   3.1- chiede con un allert all'utente di inserire i numeri che ha visto
+   3.2- confronta i numeri inseriti con i numeri generati 
+   3.3- se 1 o più numeri dell'utente coincidono: 
+      3.3.1- scrivere quanti e quali ha azzeccato
 
 */
 
@@ -38,3 +39,12 @@ const getArrayRandom = (array) => {
 
 getArrayRandom(listNumber);
 console.log(getArrayRandom(listNumber));
+
+// # MOSTRO I NUMERI CASUALI 
+alert('Ricorda questi numeri : ' + getArrayRandom(listNumber));
+
+// # IMPOSTO LA TIMING FUNCTION 
+
+setTimeout(() => {
+   alert(parseInt(prompt('Inserisci i numeri che hai visto:').trim()));
+},10000)
