@@ -33,7 +33,7 @@ const getArrayRandom = () => {
    const listNumber = [];
    for (let i = 0; i < 5; i++) {
       const randNum = Math.floor(Math.random() * 100) + 1;
-      listNumber.push(randNum);
+      if (!listNumber.includes(randNum)) listNumber.push(randNum);
    }
    return listNumber;
 };
@@ -41,7 +41,10 @@ const getArrayRandom = () => {
 const getArrayUserNum = () => {
    const userList = [];
    for (let j = 0; j < 5; j++) {
-      let userNumber = parseInt(prompt('Inserisci uno dei numeri che hai visto:'));
+      let userNumber = parseInt(prompt('Inserisci uno dei numeri che hai visto:').trim());
+      if (isNaN(userNumber) || !userList.includes(userNumber)) {
+         userNumber = parseInt(prompt('questo numero è già inserito, inserisci un altro:').trim());
+      }
       userList.push(userNumber);
    }
    return userList;
@@ -73,9 +76,14 @@ setTimeout(() => {
    });
    
    console.log(`hai indovinato questi numeri: ${checkedArray}`);
+   if (checkedArray === []) {
+      displayElement.classList.add('result');
+      displayElement.innerText = `Non hai indovinato nessun numero`;
+   } else {
 
-   displayElement.classList.add('result');
-   displayElement.innerText = `Hai indovinato questi numeri: ${checkedArray}`
+      displayElement.classList.add('result');
+      displayElement.innerText = `Hai indovinato questi numeri: ${checkedArray}`
+   }
 
 }, 10000);
 
