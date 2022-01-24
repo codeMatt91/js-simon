@@ -24,7 +24,7 @@ controllare che l'utente non inserisca 2 volte lo stesso numero
 
 // # Le COSTANTI 
 const listNumber = [];
-
+let userList = [];   
 
 // # LE FUNZIONI 
 
@@ -46,9 +46,10 @@ alert('Ricorda questi numeri : ' + listNumber);
 // # IMPOSTO LA TIMING FUNCTION 
 
 setTimeout(() => {
-   let userList = [];
+
    for (let j = 0; j < 5; j++){
-      let userNumber = alert(parseInt(prompt('Inserisci uno dei numeri che hai visto:')));
+      let userNumber;
+      userNumber = alert(parseInt(prompt('Inserisci uno dei numeri che hai visto:')));
       userList.push(userNumber);
    }
    console.log(userList);
