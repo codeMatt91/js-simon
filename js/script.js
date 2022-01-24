@@ -40,12 +40,15 @@ const getArrayRandom = () => {
 
 const getArrayUserNum = () => {
    const userList = [];
+   
    for (let j = 0; j < 5; j++) {
-      let userNumber = parseInt(prompt('Inserisci uno dei numeri che hai visto:').trim());
-      if (isNaN(userNumber) || !userList.includes(userNumber)) {
-         userNumber = parseInt(prompt('questo numero è già inserito, inserisci un altro:').trim());
+      let userNumber;
+      while (isNaN(userNumber)) {
+         userNumber = parseInt(prompt('Inserisci uno dei numeri che hai visto:'));
       }
-      userList.push(userNumber);
+      if (!isNaN(userNumber) && !userList.includes(userNumber)) {
+         userList.push(userNumber);
+      }
    }
    return userList;
 };
@@ -76,11 +79,11 @@ setTimeout(() => {
    });
    
    console.log(`hai indovinato questi numeri: ${checkedArray}`);
-   if (checkedArray === []) {
+   
+   if (!checkedArray) {
       displayElement.classList.add('result');
       displayElement.innerText = `Non hai indovinato nessun numero`;
    } else {
-
       displayElement.classList.add('result');
       displayElement.innerText = `Hai indovinato questi numeri: ${checkedArray}`
    }
