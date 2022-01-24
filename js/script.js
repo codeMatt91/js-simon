@@ -29,7 +29,6 @@ const listNumber = [];
 // # LE FUNZIONI 
 
 const getArrayRandom = (array) => {
-   array = [];
    for (let i = 0; i < 5; i++){
       const randNum = Math.floor(Math.random() * 100) + 1;
       array.push(randNum);
@@ -38,13 +37,19 @@ const getArrayRandom = (array) => {
 }
 
 getArrayRandom(listNumber);
-console.log(getArrayRandom(listNumber));
+console.log(listNumber);
 
 // # MOSTRO I NUMERI CASUALI 
-alert('Ricorda questi numeri : ' + getArrayRandom(listNumber));
+alert('Ricorda questi numeri : ' + listNumber);
+
 
 // # IMPOSTO LA TIMING FUNCTION 
 
 setTimeout(() => {
-   alert(parseInt(prompt('Inserisci i numeri che hai visto:').trim()));
+   let userList = [];
+   for (let j = 0; j < 5; j++){
+      let userNumber = alert(parseInt(prompt('Inserisci uno dei numeri che hai visto:')));
+      userList.push(userNumber);
+   }
+   console.log(userList);
 },10000)
