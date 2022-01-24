@@ -22,6 +22,8 @@ controllare che l'utente non inserisca 2 volte lo stesso numero
 
 */
 
+// # RECUPERO IN PAGINA L'ELEMENTO 
+const displayElement = document.getElementById('display');
 
    
 
@@ -59,4 +61,21 @@ setTimeout(() => {
 
    const userArray = getArrayUserNum();
    console.log(userArray);
-},10000)
+   
+   // #Controllo se i numeri dell'utente sono uguali a quelli generati 
+   const checkedArray = [];               //! Array di elementi verificati
+   
+   userArray.forEach(element => {
+      if (randomArray.includes(element)) {
+         let numbInclude = element;
+         checkedArray.push(numbInclude);
+      }
+   });
+   
+   console.log(`hai indovinato questi numeri: ${checkedArray}`);
+
+   displayElement.classList.add('result');
+   displayElement.innerText = `Hai indovinato questi numeri: ${checkedArray}`
+
+}, 10000);
+
