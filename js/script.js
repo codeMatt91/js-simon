@@ -22,40 +22,41 @@ controllare che l'utente non inserisca 2 volte lo stesso numero
 
 */
 
-// # Le COSTANTI 
-const listNumber = [];
-let userList = [];   
+
+   
 
 // # LE FUNZIONI 
 
-const getArrayRandom = (array) => {
+const getArrayRandom = () => {
+   const listNumber = [];
    for (let i = 0; i < 5; i++) {
       const randNum = Math.floor(Math.random() * 100) + 1;
-      array.push(randNum);
+      listNumber.push(randNum);
    }
-   return array;
+   return listNumber;
 };
 
-const getArrayUserNum = (array) => {
+const getArrayUserNum = () => {
+   const userList = [];
    for (let j = 0; j < 5; j++) {
-      let userNumber = alert(parseInt(prompt('Inserisci uno dei numeri che hai visto:')));
-      array.push(userNumber);
+      let userNumber = parseInt(prompt('Inserisci uno dei numeri che hai visto:'));
+      userList.push(userNumber);
    }
-   return array;
+   return userList;
 };
 
 
-getArrayRandom(listNumber);
-console.log(listNumber);
+const randomArray = getArrayRandom();
+console.log(randomArray);
 
 // # MOSTRO I NUMERI CASUALI 
-alert('Ricorda questi numeri : ' + listNumber);
+alert('Ricorda questi numeri : ' + randomArray);
 
 
 // # IMPOSTO LA TIMING FUNCTION 
 
 setTimeout(() => {
 
-   getArrayUserNum(userList);
-   console.log(userList);
+   const userArray = getArrayUserNum();
+   console.log(userArray);
 },10000)
