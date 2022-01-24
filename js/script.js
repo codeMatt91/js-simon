@@ -43,13 +43,13 @@ const getArrayUserNum = () => {
    
    for (let j = 0; j < 5; j++) {
       let userNumber;
-      while (isNaN(userNumber)) {
+      while (isNaN(userNumber) || userNumber <= 0) {
          userNumber = parseInt(prompt('Inserisci uno dei numeri che hai visto:'));
       }
       if (!isNaN(userNumber) && !userList.includes(userNumber)) {
          userList.push(userNumber);
       }
-   }
+   };
    return userList;
 };
 
@@ -79,14 +79,14 @@ setTimeout(() => {
    });
    
    console.log(`hai indovinato questi numeri: ${checkedArray}`);
-   
-   if (!checkedArray) {
+
+   if (checkedArray == '') {
       displayElement.classList.add('result');
       displayElement.innerText = `Non hai indovinato nessun numero`;
    } else {
       displayElement.classList.add('result');
       displayElement.innerText = `Hai indovinato questi numeri: ${checkedArray}`
-   }
+   };
 
 }, 10000);
 
