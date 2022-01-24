@@ -29,12 +29,21 @@ let userList = [];
 // # LE FUNZIONI 
 
 const getArrayRandom = (array) => {
-   for (let i = 0; i < 5; i++){
+   for (let i = 0; i < 5; i++) {
       const randNum = Math.floor(Math.random() * 100) + 1;
       array.push(randNum);
    }
    return array;
-}
+};
+
+const getArrayUserNum = (array) => {
+   for (let j = 0; j < 5; j++) {
+      let userNumber = alert(parseInt(prompt('Inserisci uno dei numeri che hai visto:')));
+      array.push(userNumber);
+   }
+   return array;
+};
+
 
 getArrayRandom(listNumber);
 console.log(listNumber);
@@ -47,10 +56,6 @@ alert('Ricorda questi numeri : ' + listNumber);
 
 setTimeout(() => {
 
-   for (let j = 0; j < 5; j++){
-      let userNumber;
-      userNumber = alert(parseInt(prompt('Inserisci uno dei numeri che hai visto:')));
-      userList.push(userNumber);
-   }
+   getArrayUserNum(userList);
    console.log(userList);
 },10000)
